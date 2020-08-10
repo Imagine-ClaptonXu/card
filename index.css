@@ -78,7 +78,7 @@
 	width: 100px;
 	border: 2px solid #FFF;
 	border-radius: 8px;
-	background-color: lightcoral;
+	background-color: lightgrey;
 	color: #999;
 }
 .blackText {
@@ -106,6 +106,15 @@
 	bottom: 40px;
 	text-align: center;
 	color: #FFF;
-	font-size: 14px;
+	font-size: 24px;
 	font-weight: bold;
+	border: 2px solid #FFF;
+	border-radius: 5px;
+	padding: 3px 10px 3px 10px;
+}
+.redText {
+	color: #FF0000 !important;
+}
+.blackText {
+	color: #000 !important;
 }
