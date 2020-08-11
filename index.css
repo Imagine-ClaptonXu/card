@@ -31,7 +31,10 @@
 }
 .changeBtn {
 	margin-right: 40px;
-	background-color: lightcoral;
+	background-color: #999;
+}
+.changedCardShow {
+	border: none !important;
 }
 .rightStackCard {
 	display: flex;
@@ -40,8 +43,13 @@
 	align-items: center;
 	width: 760px;
 }
-.rightStackCard > .eachCard {
-	margin-left: 20px;
+.rightStackCard > .eachFourCard {
+	position: relative;
+	margin-left: 40px;
+	height: 160px;
+	width: 100px;
+	border: 2px solid #FFF;
+	border-radius: 8px;
 }
 .eachCard {
 	height: 160px;
