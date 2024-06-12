@@ -13,7 +13,7 @@
 	justify-content: flex-start;
 	align-items: center;
 	padding: 40px;
-	margin: 20px auto;
+	/*margin: 20px auto;*/
 }
 .topBox {
 	display: flex;
@@ -96,6 +96,8 @@
 	position: absolute;
 	top: 2px;
 	left: 4px;
+	font-size: 24px;
+	font-weight: bold;
 }
 .eachCardType {
 	position: absolute;
@@ -125,4 +127,32 @@
 }
 .blackText {
 	color: #000 !important;
+}
+
+
+/*顶部牌叠辅助功能*/
+.topSupportText {
+	padding: 20px;
+}
+.btmCard {
+	padding: 2px;
+	border: 2px dashed gray;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-wrap: wrap;
+}
+.noMargin {
+	margin: 0 !important;
+}
+.eachCardInColInSupport {
+	position: relative;
+	height: 160px;
+	width: 100px;
+	border: 2px solid #FFF;
+	border-radius: 8px;
+	background-color: lightgrey;
+	color: #999;
 }

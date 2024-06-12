@@ -1,24 +1,3 @@
-/*
-1, 构建 52 张牌
-	1.1, 构建 4 个花色, 每个花色 13 张, A -> K
-	1.2, 花色, type: 黑桃 ♠: 1, 红桃 ♥: 2, 梅花 ♣: 3, 方片 ♦: 4
-	1.3, 增加正反面, face: positive/negative
-	1.4, 区分红黑, color: red/black
-2, 初始化底部界面
-	2.1, 每列 1-7 个, 正反面
-3, 左上角点击展示一张牌的事件
-4, 拖拽左上角的牌
-5, 拖到目的地(每列牌和顶部 4 个空白处)
-	5.1, 底部的数字判断, 5 下面放 4, 红黑交叉
-	5.2, 顶部反过来, 0 上面放 1, 但是花色需要相同
-	5.3, 顶部最上面的牌要更新变成新的 target
-	5.4, 点背面不能直接翻, 要再最外面才行
-6, 增加列空白的可以拖拽上去 TODO:
-7, 整体连续的可以拖拽 TODO:
-*/
-/*
-
-*/
 const log = console.log.bind(console)
 
 // 拖拽 DOM
@@ -72,6 +51,40 @@ const buildCardLib = function () {
 	TOP_CARD_LIB = CARD_LIB.slice(28)
 	log("*** CARD_LIB BOTTOM_CARD_LIB TOP_CARD_LIB", CARD_LIB, BOTTOM_CARD_LIB, TOP_CARD_LIB)
 	// return cardLib
+
+	toggleTopSupport()
+}
+
+// 展示左上角牌叠
+const toggleTopSupport = function () {
+	$(".topSupport").on("click", event => {
+		log('展示左上角牌叠 event', event)
+		if ($(".topSupport")[0].classList.contains('supportOpen')) {
+			$(".topSupport").removeClass("supportOpen")
+			$('.btmCard').empty()
+		} else {
+			$(".topSupport").addClass("supportOpen")
+			let total = ''
+			TOP_CARD_LIB.forEach((e, i) => {
+				log('index', e)
+				let topShowCard = e
+				let textColor = ""
+				if (topShowCard.color === "red") {
+					textColor = '<div class="eachCardNum redText">' + topShowCard.text + '</div>' +
+						'<div class="eachCardType redText">' + colorTextObj[topShowCard.type] + '</div>'
+				} else {
+					textColor = '<div class="eachCardNum blackText">' + topShowCard.text + '</div>' +
+						'<div class="eachCardType blackText">' + colorTextObj[topShowCard.type] + '</div>'
+				}
+				let showCardText = '<div ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" draggable="true" class="eachCardInColInSupport isPositive dragCard source" index="' + (i + 1) + '" color="' + topShowCard.color + '" face="' + topShowCard.face + '" type="' + topShowCard.type + '" num="' + topShowCard.num + '">' +
+					textColor +
+					'</div>'
+				total += showCardText
+			})
+
+			$('.btmCard').append(total)
+		}
+	})
 }
 
 // 构建一种花色牌库
@@ -118,7 +131,7 @@ const buildEachColumnCard = function () {
 				textColor = '<div class="eachCardNum blackText">' + e2.text + '</div>' +
 				'<div class="eachCardType blackText">' + colorTextObj[e2.type] + '</div>'
 			}
-			log("*** e2.num", e2.num, e2)
+			// log("*** e2.num", e2.num, e2)
 			if (String(i2 + 1) === String(index)) {
 				eachCardInColDom = eachCardInColDom +
 				'<div ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" draggable="true" class="eachCardInCol isPositive dragCard bottomTarget" color="' + e2.color + '" face="' + e2.face + '" type="' + e2.type + '" num="' + e2.num + '">' +
@@ -246,6 +259,8 @@ const drop_handler = function (event) {
 			if (Number($(event.target).attr("num")) === Number($(nowDragDom).attr("num")) + 1) {
 				log("*** in 数字挨着 5 => 4")
 				$(event.target).parent().append($(nowDragDom));
+				log('一张牌被放置成功了！！！')
+				// TODO: 这里要检测如果是左上角的牌叠（顶部辅助区域），要更新 TOP_CARD_LIB 数据（删除当前纸牌），topCardIndex 不变
 			}
 		}
 	}
@@ -272,6 +287,9 @@ const __main = function () {
 	handleStartBtn()
 	handleChangeFace()
 	// dragEvent()
+
+	// 默认展示左上角牌叠
+	$(".topSupport").click()
 }
 
 __main()
