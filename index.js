@@ -24,6 +24,13 @@ let CARD_LIB = []
 let BOTTOM_CARD_LIB = []
 let TOP_CARD_LIB = []
 let topCardIndex = 0
+// 顶部空白的 4 列可以被从 A => K 的地方，每列要同样花色
+let topWhiteSpace = [
+	[],
+	[],
+	[],
+	[],
+]
 
 // 初始化
 const init = function () {
@@ -66,7 +73,7 @@ const toggleTopSupport = function () {
 			$(".topSupport").addClass("supportOpen")
 			let total = ''
 			TOP_CARD_LIB.forEach((e, i) => {
-				log('index', e)
+				// log('index', e)
 				let topShowCard = e
 				let textColor = ""
 				if (topShowCard.color === "red") {
@@ -76,7 +83,7 @@ const toggleTopSupport = function () {
 					textColor = '<div class="eachCardNum blackText">' + topShowCard.text + '</div>' +
 						'<div class="eachCardType blackText">' + colorTextObj[topShowCard.type] + '</div>'
 				}
-				let showCardText = '<div ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" draggable="true" class="eachCardInColInSupport isPositive dragCard source" index="' + (i + 1) + '" color="' + topShowCard.color + '" face="' + topShowCard.face + '" type="' + topShowCard.type + '" num="' + topShowCard.num + '">' +
+				let showCardText = '<div ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragstart="dragstart_handler(event);" draggable="true" class="subCard eachCardInColInSupport isPositive dragCard source" index="' + (i + 1) + '" color="' + topShowCard.color + '" face="' + topShowCard.face + '" type="' + topShowCard.type + '" num="' + topShowCard.num + '">' +
 					textColor +
 					'</div>'
 				total += showCardText
@@ -156,7 +163,7 @@ const buildEachColumnCard = function () {
 const handleChangeCardBtn = function () {
 	$(".changeBtn").on("click", event => {
 		$(".source").removeClass("source")
-		
+
 		let topShowCard = TOP_CARD_LIB[topCardIndex]
 		let textColor = ""
 		if (topShowCard.color === "red") {
@@ -166,7 +173,7 @@ const handleChangeCardBtn = function () {
 			textColor = '<div class="eachCardNum blackText">' + topShowCard.text + '</div>' +
 			'<div class="eachCardType blackText">' + colorTextObj[topShowCard.type] + '</div>'
 		}
-		let showCardText = '<div ondragstart="dragstart_handler(event);" draggable="true" class="eachCardInCol isPositive dragCard source" index="' + (topCardIndex + 1) + '" color="' + topShowCard.color + '" face="' + topShowCard.face + '" type="' + topShowCard.type + '" num="' + topShowCard.num + '">' +
+		let showCardText = '<div ondragstart="dragstart_handler(event);" draggable="true" class="subCard eachCardInCol isPositive dragCard source" index="' + (topCardIndex + 1) + '" color="' + topShowCard.color + '" face="' + topShowCard.face + '" type="' + topShowCard.type + '" num="' + topShowCard.num + '">' +
 			textColor +
 		'</div>'
 		$(".changedCardShow").empty()
@@ -260,7 +267,13 @@ const drop_handler = function (event) {
 				log("*** in 数字挨着 5 => 4")
 				$(event.target).parent().append($(nowDragDom));
 				log('一张牌被放置成功了！！！')
-				// TODO: 这里要检测如果是左上角的牌叠（顶部辅助区域），要更新 TOP_CARD_LIB 数据（删除当前纸牌），topCardIndex 不变
+				// 通过 subCard 属性判断是左上角牌叠的牌
+				if ($(nowDragDom)[0].classList.contains('subCard')) {
+					// 更新左上角（被展开的）牌叠
+					updateTopCardList($(nowDragDom).attr("index") - 1)
+					// 牌被成功放置之后要去掉 subCard 属性
+					$(nowDragDom).removeClass("subCard")
+				}
 			}
 		}
 	}
@@ -268,6 +281,12 @@ const drop_handler = function (event) {
 	event.dataTransfer.clearData();
 	nowDragDom = null
 	log("*** nowDragDom", nowDragDom)
+}
+
+// 更新左上角（被展开的）牌叠
+const updateTopCardList = function (index) {
+	TOP_CARD_LIB.splice(index, 1)
+	topCardIndex -= 1
 }
 
 // 点击开始
