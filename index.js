@@ -251,29 +251,32 @@ const drop_handler = function (event) {
 		log(">>> in 顶部")
 		// 顶部的 4 个花色
 		if ($(event.target).attr("type") === $(nowDragDom).attr("type")) {
-			log(">>> in type === type")
+			log(">>> 顶部这一列是空的，可以放置")
 			if (Number($(event.target).attr("num")) + 1 === Number($(nowDragDom).attr("num"))) {
 				log("*** in 数字挨着 0 => 1")
 				$(nowDragDom).addClass("topTarget")
 				$(event.target).append($(nowDragDom));
 			}
 		}
+	} else if (event.target.classList.contains("eachColumn")) {
+		log(">>> in 底部")
+		if ($(event.target).children().length === 0) {
+			log("*** 底部这一列是空的，可以放置")
+			$(event.target).append($(nowDragDom));
+			// 通过 subCard 属性判断是左上角牌叠的牌
+			updateTopCardList(nowDragDom)
+		}
 	} else {
+		log('>>> 红黑相间')
 		// 红黑相间
 		if ($(event.target).attr("color") !== $(nowDragDom).attr("color")) {
 			// 数字挨着 5 下面只能放 4
 			log("*** in 红黑相间")
 			if (Number($(event.target).attr("num")) === Number($(nowDragDom).attr("num")) + 1) {
-				log("*** in 数字挨着 5 => 4")
 				$(event.target).parent().append($(nowDragDom));
 				log('一张牌被放置成功了！！！')
 				// 通过 subCard 属性判断是左上角牌叠的牌
-				if ($(nowDragDom)[0].classList.contains('subCard')) {
-					// 更新左上角（被展开的）牌叠
-					updateTopCardList($(nowDragDom).attr("index") - 1)
-					// 牌被成功放置之后要去掉 subCard 属性
-					$(nowDragDom).removeClass("subCard")
-				}
+				updateTopCardList(nowDragDom)
 			}
 		}
 	}
@@ -284,9 +287,17 @@ const drop_handler = function (event) {
 }
 
 // 更新左上角（被展开的）牌叠
-const updateTopCardList = function (index) {
-	TOP_CARD_LIB.splice(index, 1)
-	topCardIndex -= 1
+const updateTopCardList = function (nowDragDom) {
+	// 通过 subCard 属性判断是左上角牌叠的牌
+	if ($(nowDragDom)[0]?.classList?.contains('subCard')) {
+		let index = $(nowDragDom).attr("index") - 1
+		// 更新左上角（被展开的）牌叠
+		updateTopCardList($(nowDragDom).attr("index") - 1)
+		// 牌被成功放置之后要去掉 subCard 属性
+		$(nowDragDom).removeClass("subCard")
+		TOP_CARD_LIB.splice(index, 1)
+		topCardIndex -= 1
+	}
 }
 
 // 点击开始
