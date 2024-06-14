@@ -39,7 +39,7 @@ const init = function () {
 }
 
 // 构建牌库
-const buildCardLib = function () {
+const buildCardLib = function (debugData) {
 	let cardLib = []
 	fourType.forEach(item => {
 		cardLib = [...cardLib, ...buildOneColor(item)]
@@ -58,6 +58,13 @@ const buildCardLib = function () {
 	TOP_CARD_LIB = CARD_LIB.slice(28)
 	log("*** CARD_LIB BOTTOM_CARD_LIB TOP_CARD_LIB", CARD_LIB, BOTTOM_CARD_LIB, TOP_CARD_LIB)
 	// return cardLib
+
+	if (debugData) {
+		CARD_LIB = debugData.CARD_LIB
+		BOTTOM_CARD_LIB = debugData.BOTTOM_CARD_LIB
+		TOP_CARD_LIB = debugData.TOP_CARD_LIB
+		console.warn("*** debugData: CARD_LIB BOTTOM_CARD_LIB TOP_CARD_LIB", CARD_LIB, BOTTOM_CARD_LIB, TOP_CARD_LIB)
+	}
 
 	toggleTopSupport()
 }
@@ -250,12 +257,26 @@ const drop_handler = function (event) {
 	if (event.target.classList.contains("topTarget")) {
 		log(">>> in 顶部")
 		// 顶部的 4 个花色
-		if ($(event.target).attr("type") === $(nowDragDom).attr("type")) {
+		if ($(event.target).children().length === 0) {
 			log(">>> 顶部这一列是空的，可以放置")
-			if (Number($(event.target).attr("num")) + 1 === Number($(nowDragDom).attr("num"))) {
-				log("*** in 数字挨着 0 => 1")
-				$(nowDragDom).addClass("topTarget")
-				$(event.target).append($(nowDragDom));
+			// 获取花色
+			let type = $(nowDragDom).attr("type")
+			// 给这一列的花色赋值
+			$(event.target).attr("type", type)
+			$(nowDragDom).addClass("topTarget")
+			$(event.target).append($(nowDragDom));
+			// 通过 subCard 属性判断是左上角牌叠的牌
+			updateTopCardList(nowDragDom)
+		} else {
+			log(">>> 顶部，非空，检查花色和数值")
+			if ($(event.target).attr("type") === $(nowDragDom).attr("type")) {
+				if (Number($(event.target).attr("num")) + 1 === Number($(nowDragDom).attr("num"))) {
+					log("*** in 数字挨着 0 => 1")
+					$(nowDragDom).addClass("topTarget")
+					$(event.target).append($(nowDragDom));
+					// 通过 subCard 属性判断是左上角牌叠的牌
+					updateTopCardList(nowDragDom)
+				}
 			}
 		}
 	} else if (event.target.classList.contains("eachColumn")) {
@@ -309,12 +330,27 @@ const handleStartBtn = function () {
 	})
 }
 
+// 点击 debug
+const handleDebugBtn = function () {
+	$(".debugBtn").on("click", e => {
+		// 这里把纸牌数据全部挂载到 window 上，用于复原
+		window.card = {
+			CARD_LIB,
+			BOTTOM_CARD_LIB,
+			TOP_CARD_LIB,
+			topCardIndex,
+		}
+		log('window.card', window.card)
+	})
+}
+
 const __main = function () {
 	init()
 	buildCardLib()
 	buildEachColumnCard()
 	handleChangeCardBtn()
 	handleStartBtn()
+	handleDebugBtn()
 	handleChangeFace()
 	// dragEvent()
 

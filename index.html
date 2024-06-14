@@ -17,45 +17,26 @@
 		<div class="topBox">
 			<div class="leftChangeCard">
 				<div class="changeBtn eachCard"></div>
-				<div class="changedCardShow eachCard">
-					<!-- <div ondragstart="dragstart_handler(event);" draggable="true" class="eachCardInCol isPositive dragCard" index="1" color="black" face="positive" type="1" num="3">
-						<div class="eachCardNum">3</div>
-						<div class="eachCardType">♠</div>
-						<div class="eachCardTypeMid">♠</div>
-					</div> -->
-				</div>
+				<div class="changedCardShow eachCard"></div>
 			</div>
 			<div class="rightStackCard">
-				<div ondrop="drop_handler(event);" ondragover="dragover_handler(event);" class="hei eachFourCard topTarget" type="1" num="0">
-					<!-- <div class="eachCardTypeMid blackText">♠</div> -->
-				</div>
-				<div ondrop="drop_handler(event);" ondragover="dragover_handler(event);" class="hong eachFourCard topTarget" type="2" num="0">
-					<!-- <div class="eachCardTypeMid redText">♥</div> -->
-				</div>
-				<div ondrop="drop_handler(event);" ondragover="dragover_handler(event);" class="hua eachFourCard topTarget" type="3" num="0">
-					<!-- <div class="eachCardTypeMid blackText">♣</div> -->
-				</div>
-				<div ondrop="drop_handler(event);" ondragover="dragover_handler(event);" class="pian eachFourCard topTarget" type="4" num="0">
-					<!-- <div class="eachCardTypeMid redText">♦</div> -->
-				</div>
+				<div ondrop="drop_handler(event);" ondragover="dragover_handler(event);" class="eachFourCard topTarget" type="1" num="0"></div>
+				<div ondrop="drop_handler(event);" ondragover="dragover_handler(event);" class="eachFourCard topTarget" type="2" num="0"></div>
+				<div ondrop="drop_handler(event);" ondragover="dragover_handler(event);" class="eachFourCard topTarget" type="3" num="0"></div>
+				<div ondrop="drop_handler(event);" ondragover="dragover_handler(event);" class="eachFourCard topTarget" type="4" num="0"></div>
 			</div>
 		</div>
 		<div class="bottomCardBox">
-			<div ondrop="drop_handler(event);" ondragover="dragover_handler(event);" class="column1 eachColumn bottomTarget bottomWhite" index="1">
-				<!-- <div class="eachCardInCol isPositive dragCard" index="1" color="black" face="positive" type="1" num="3">
-					<div class="eachCardNum">3</div>
-					<div class="eachCardType">♠</div>
-					<div class="eachCardTypeMid">♠</div>
-				</div> -->
-			</div>
-			<div class="column2 eachColumn bottomTarget" index="2"></div>
-			<div class="column3 eachColumn bottomTarget" index="3"></div>
-			<div class="column4 eachColumn bottomTarget" index="4"></div>
-			<div class="column5 eachColumn bottomTarget" index="5"></div>
-			<div class="column6 eachColumn bottomTarget" index="6"></div>
-			<div class="column7 eachColumn bottomTarget" index="7"></div>
+			<div ondrop="drop_handler(event);" ondragover="dragover_handler(event);" class="eachColumn bottomTarget" index="1"></div>
+			<div ondrop="drop_handler(event);" ondragover="dragover_handler(event);" class="eachColumn bottomTarget" index="2"></div>
+			<div ondrop="drop_handler(event);" ondragover="dragover_handler(event);" class="eachColumn bottomTarget" index="3"></div>
+			<div ondrop="drop_handler(event);" ondragover="dragover_handler(event);" class="eachColumn bottomTarget" index="4"></div>
+			<div ondrop="drop_handler(event);" ondragover="dragover_handler(event);" class="eachColumn bottomTarget" index="5"></div>
+			<div ondrop="drop_handler(event);" ondragover="dragover_handler(event);" class="eachColumn bottomTarget" index="6"></div>
+			<div ondrop="drop_handler(event);" ondragover="dragover_handler(event);" class="eachColumn bottomTarget" index="7"></div>
 		</div>
 		<div class="startBtn">Start</div>
+		<div class="debugBtn">debug (获取这一局的牌序数据)</div>
 	</div>
 	<script src="./lib/jquery.min.js"></script>
 	<script src="./index.js"></script>

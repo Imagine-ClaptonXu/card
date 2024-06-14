@@ -113,7 +113,18 @@
 }
 .startBtn {
 	position: absolute;
-	bottom: 40px;
+	bottom: 30px;
+	text-align: center;
+	color: #FFF;
+	font-size: 24px;
+	font-weight: bold;
+	border: 2px solid #FFF;
+	border-radius: 5px;
+	padding: 3px 10px 3px 10px;
+}
+.debugBtn {
+	position: absolute;
+	bottom: 80px;
 	text-align: center;
 	color: #FFF;
 	font-size: 24px;
