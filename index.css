@@ -7,7 +7,7 @@
 	position: relative;
 	width: 1100px;
 	height: 850px;
-	background: radial-gradient(#32C032, #004000);
+	background: radial-gradient(rgba(85,195,85,1), rgba(10,32,6,1));	display: flex;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -21,7 +21,7 @@
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
-	margin-bottom: 100px;
+	margin-bottom: 70px;
 }
 .leftChangeCard {
 	display: flex;
@@ -30,8 +30,11 @@
 	align-items: center;
 }
 .changeBtn {
-	margin-right: 40px;
-	background-color: #999;
+	margin-right: 10px;
+	background-color: #00008B;
+	background: url("./imgs/tinified/blueBg.png") no-repeat;
+	background-size: cover;
+	opacity: 0.9;
 }
 .changedCardShow {
 	border: none !important;
@@ -45,49 +48,54 @@
 }
 .rightStackCard > .eachFourCard {
 	position: relative;
-	margin-left: 40px;
-	height: 160px;
-	width: 100px;
-	border: 2px solid #FFF;
-	border-radius: 8px;
+	margin-left: 20px;
+	height: 168px;
+	width: 126px;
+	border: 2px solid #F0FFFF;
+	border-radius: 12px;
+	padding: 2px;
 }
 .eachCard {
 	height: 160px;
-	width: 100px;
-	border: 2px solid #FFF;
-	border-radius: 8px;
+	width: 118px;
 }
-.isNegative {
-	background-color: #999 !important;
-}
-.isPositive {
-	color: black !important;
-}
+
 .bottomCardBox {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
 	width: 100%;
 }
 .eachColumn {
 	position: relative;
 	height: 160px;
-	width: 100px;
-	background-color: lightcoral;
-	/* border: 2px solid lightcoral; */
-	border-radius: 8px;
+	width: 120px;
+	border: 1px solid #808A87;
+	border-radius: 4px;
+	padding: 1px;
 }
 .eachCardInCol {
 	position: relative;
 	top: 130px;
 	margin-top: -130px;
 	height: 160px;
-	width: 100px;
-	border: 2px solid #FFF;
+	width: 118px;
+	border: 1px solid #000;
 	border-radius: 8px;
-	background-color: lightgrey;
+	background-color: #FFF;
 	color: #999;
+}
+.isNegative {
+	height: 160px;
+	width: 118px;
+	background: url("./imgs/tinified/blueBg.png") no-repeat;
+	background-size: cover;
+	border: none;
+	opacity: 0.9;
+}
+.isPositive {
+	color: black !important;
 }
 .blackText {
 	color: black !important;
@@ -154,6 +162,8 @@
 	justify-content: flex-start;
 	align-items: flex-start;
 	flex-wrap: wrap;
+	overflow: hidden;
+	margin: 2px;
 }
 .noMargin {
 	margin: 0 !important;
@@ -161,9 +171,10 @@
 .eachCardInColInSupport {
 	position: relative;
 	height: 160px;
-	width: 100px;
-	border: 2px solid #FFF;
-	border-radius: 8px;
-	background-color: lightgrey;
-	color: #999;
+	width: 118px;
+	border: 1px solid #000;
+	border-radius: 5px;
+	background-color: #FFF;
+	top: 110px;
+	margin-top: -110px;
 }
