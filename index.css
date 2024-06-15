@@ -32,9 +32,10 @@
 .changeBtn {
 	margin-right: 10px;
 	background-color: #00008B;
-	background: url("./imgs/tinified/blueBg.png") no-repeat;
-	background-size: cover;
+	background: url("./imgs/tinified/newBg.png") no-repeat;
+	background-size: contain;
 	opacity: 0.9;
+	background-color: #FFFFFF;
 }
 .changedCardShow {
 	border: none !important;
@@ -57,7 +58,8 @@
 }
 .eachCard {
 	height: 160px;
-	width: 118px;
+	width: 117px;
+	border-radius: 6px;
 }
 
 .bottomCardBox {
@@ -89,8 +91,9 @@
 .isNegative {
 	height: 160px;
 	width: 118px;
-	background: url("./imgs/tinified/blueBg.png") no-repeat;
-	background-size: cover;
+	background: url("./imgs/tinified/newBg.png") no-repeat;
+	background-size: contain;
+	background-color: #FFFFFF;
 	border: none;
 	opacity: 0.9;
 }
