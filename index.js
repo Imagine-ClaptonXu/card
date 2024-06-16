@@ -32,6 +32,745 @@ let topWhiteSpace = [
 	[],
 ]
 
+let debugData = {
+	"CARD_LIB": [
+		{
+			"num": 6,
+			"face": "negative",
+			"text": "6",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 4,
+			"face": "negative",
+			"text": "4",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 1,
+			"face": "negative",
+			"text": "A",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 7,
+			"face": "negative",
+			"text": "7",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 11,
+			"face": "negative",
+			"text": "J",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 6,
+			"face": "negative",
+			"text": "6",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 3,
+			"face": "negative",
+			"text": "3",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 11,
+			"face": "negative",
+			"text": "J",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 13,
+			"face": "negative",
+			"text": "K",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 5,
+			"face": "negative",
+			"text": "5",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 3,
+			"face": "negative",
+			"text": "3",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 10,
+			"face": "negative",
+			"text": "10",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 4,
+			"face": "negative",
+			"text": "4",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 11,
+			"face": "negative",
+			"text": "J",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 12,
+			"face": "negative",
+			"text": "Q",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 9,
+			"face": "negative",
+			"text": "9",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 7,
+			"face": "negative",
+			"text": "7",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 2,
+			"face": "negative",
+			"text": "2",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 8,
+			"face": "negative",
+			"text": "8",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 4,
+			"face": "negative",
+			"text": "4",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 3,
+			"face": "negative",
+			"text": "3",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 5,
+			"face": "negative",
+			"text": "5",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 13,
+			"face": "negative",
+			"text": "K",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 5,
+			"face": "negative",
+			"text": "5",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 12,
+			"face": "negative",
+			"text": "Q",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 1,
+			"face": "negative",
+			"text": "A",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 11,
+			"face": "negative",
+			"text": "J",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 2,
+			"face": "negative",
+			"text": "2",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 2,
+			"face": "negative",
+			"text": "2",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 1,
+			"face": "negative",
+			"text": "A",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 3,
+			"face": "negative",
+			"text": "3",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 10,
+			"face": "negative",
+			"text": "10",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 6,
+			"face": "negative",
+			"text": "6",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 4,
+			"face": "negative",
+			"text": "4",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 8,
+			"face": "negative",
+			"text": "8",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 13,
+			"face": "negative",
+			"text": "K",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 6,
+			"face": "negative",
+			"text": "6",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 12,
+			"face": "negative",
+			"text": "Q",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 8,
+			"face": "negative",
+			"text": "8",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 7,
+			"face": "negative",
+			"text": "7",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 2,
+			"face": "negative",
+			"text": "2",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 9,
+			"face": "negative",
+			"text": "9",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 1,
+			"face": "negative",
+			"text": "A",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 13,
+			"face": "negative",
+			"text": "K",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 10,
+			"face": "negative",
+			"text": "10",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 10,
+			"face": "negative",
+			"text": "10",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 5,
+			"face": "negative",
+			"text": "5",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 9,
+			"face": "negative",
+			"text": "9",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 12,
+			"face": "negative",
+			"text": "Q",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 7,
+			"face": "negative",
+			"text": "7",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 8,
+			"face": "negative",
+			"text": "8",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 9,
+			"face": "negative",
+			"text": "9",
+			"type": 3,
+			"color": "black"
+		}
+	],
+	"BOTTOM_CARD_LIB": [
+		{
+			"num": 6,
+			"face": "negative",
+			"text": "6",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 4,
+			"face": "negative",
+			"text": "4",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 1,
+			"face": "negative",
+			"text": "A",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 7,
+			"face": "negative",
+			"text": "7",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 11,
+			"face": "negative",
+			"text": "J",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 6,
+			"face": "negative",
+			"text": "6",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 3,
+			"face": "negative",
+			"text": "3",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 11,
+			"face": "negative",
+			"text": "J",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 13,
+			"face": "negative",
+			"text": "K",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 5,
+			"face": "negative",
+			"text": "5",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 3,
+			"face": "negative",
+			"text": "3",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 10,
+			"face": "negative",
+			"text": "10",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 4,
+			"face": "negative",
+			"text": "4",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 11,
+			"face": "negative",
+			"text": "J",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 12,
+			"face": "negative",
+			"text": "Q",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 9,
+			"face": "negative",
+			"text": "9",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 7,
+			"face": "negative",
+			"text": "7",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 2,
+			"face": "negative",
+			"text": "2",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 8,
+			"face": "negative",
+			"text": "8",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 4,
+			"face": "negative",
+			"text": "4",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 3,
+			"face": "negative",
+			"text": "3",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 5,
+			"face": "negative",
+			"text": "5",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 13,
+			"face": "negative",
+			"text": "K",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 5,
+			"face": "negative",
+			"text": "5",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 12,
+			"face": "negative",
+			"text": "Q",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 1,
+			"face": "negative",
+			"text": "A",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 11,
+			"face": "negative",
+			"text": "J",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 2,
+			"face": "negative",
+			"text": "2",
+			"type": 1,
+			"color": "black"
+		}
+	],
+	"TOP_CARD_LIB": [
+		{
+			"num": 2,
+			"face": "negative",
+			"text": "2",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 1,
+			"face": "negative",
+			"text": "A",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 3,
+			"face": "negative",
+			"text": "3",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 10,
+			"face": "negative",
+			"text": "10",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 6,
+			"face": "negative",
+			"text": "6",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 4,
+			"face": "negative",
+			"text": "4",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 8,
+			"face": "negative",
+			"text": "8",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 13,
+			"face": "negative",
+			"text": "K",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 6,
+			"face": "negative",
+			"text": "6",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 12,
+			"face": "negative",
+			"text": "Q",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 8,
+			"face": "negative",
+			"text": "8",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 7,
+			"face": "negative",
+			"text": "7",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 2,
+			"face": "negative",
+			"text": "2",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 9,
+			"face": "negative",
+			"text": "9",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 1,
+			"face": "negative",
+			"text": "A",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 13,
+			"face": "negative",
+			"text": "K",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 10,
+			"face": "negative",
+			"text": "10",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 10,
+			"face": "negative",
+			"text": "10",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 5,
+			"face": "negative",
+			"text": "5",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 9,
+			"face": "negative",
+			"text": "9",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 12,
+			"face": "negative",
+			"text": "Q",
+			"type": 2,
+			"color": "red"
+		},
+		{
+			"num": 7,
+			"face": "negative",
+			"text": "7",
+			"type": 1,
+			"color": "black"
+		},
+		{
+			"num": 8,
+			"face": "negative",
+			"text": "8",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 9,
+			"face": "negative",
+			"text": "9",
+			"type": 3,
+			"color": "black"
+		}
+	],
+	"topCardIndex": 0
+}
+// debugData = null
+
 // 初始化
 const init = function () {
 	topCardIndex = 0
@@ -126,6 +865,26 @@ const buildOneColor = function (type) {
 	return res
 }
 
+// 生成纸牌内部 html
+const templateCardInner = function (e2) {
+	log('templateCardInner e2', e2)
+	let r = ''
+	r = `
+		<div class="innerCardTop innerCardLine">
+			<div class="eachCardNum ${e2.color}Text">${e2.text}</div>
+			<div class="eachCardType ${e2.color}Text">${colorTextObj[e2.type]}</div>
+		</div>
+		<div class="innerCardMid">
+			<div class="eachCardType ${e2.color}Text">${colorTextObj[e2.type]}</div>
+		</div>
+		<div class="innerCardBtm innerCardLine">
+			<div class="eachCardType ${e2.color}Text">${colorTextObj[e2.type]}</div>
+			<div class="eachCardNum ${e2.color}Text">${e2.text}</div>
+		</div>
+	`
+	return r
+}
+
 // 循环构建每列牌
 const buildEachColumnCard = function () {
 	let eachColumn = $(".eachColumn")
@@ -137,14 +896,8 @@ const buildEachColumnCard = function () {
 		for (let i2 = 0; i2 < index; i2++) {
 			const e2 = BOTTOM_CARD_LIB[cardIndex]
 			// 判断正反面
-			let textColor = ""
-			if (e2.color === "red") {
-				textColor = '<div class="eachCardNum redText">' + e2.text + '</div>' +
-				'<div class="eachCardType redText">' + colorTextObj[e2.type] + '</div>'
-			} else {
-				textColor = '<div class="eachCardNum blackText">' + e2.text + '</div>' +
-				'<div class="eachCardType blackText">' + colorTextObj[e2.type] + '</div>'
-			}
+			let textColor = templateCardInner(e2)
+			// log('textColor', textColor)
 			// log("*** e2.num", e2.num, e2)
 			if (String(i2 + 1) === String(index)) {
 				eachCardInColDom = eachCardInColDom +
@@ -161,7 +914,7 @@ const buildEachColumnCard = function () {
 		}
 		$(e).empty()
 		$(e).append(eachCardInColDom)
-		handleChangeFace()
+		// handleChangeFace()
 	}
 	log("*** eachColumn", eachColumn)
 }
@@ -172,14 +925,7 @@ const handleChangeCardBtn = function () {
 		$(".source").removeClass("source")
 
 		let topShowCard = TOP_CARD_LIB[topCardIndex]
-		let textColor = ""
-		if (topShowCard.color === "red") {
-			textColor = '<div class="eachCardNum redText">' + topShowCard.text + '</div>' +
-			'<div class="eachCardType redText">' + colorTextObj[topShowCard.type] + '</div>'
-		} else {
-			textColor = '<div class="eachCardNum blackText">' + topShowCard.text + '</div>' +
-			'<div class="eachCardType blackText">' + colorTextObj[topShowCard.type] + '</div>'
-		}
+		let textColor = templateCardInner(topShowCard)
 		let showCardText = '<div ondragstart="dragstart_handler(event);" draggable="true" class="subCard eachCardInCol isPositive dragCard source" index="' + (topCardIndex + 1) + '" color="' + topShowCard.color + '" face="' + topShowCard.face + '" type="' + topShowCard.type + '" num="' + topShowCard.num + '">' +
 			textColor +
 		'</div>'
@@ -198,7 +944,7 @@ const handleChangeFace = function () {
 	$(".isNegative").on("click", event => {
 		let target = event.target
 		// $(".target").next()
-		log("*** next", $(target).next(), $(target).next()[0])
+		// log("*** next", $(target), $(target).next(), $(target).next()[0])
 		if ($(target).next()[0]) {
 			return
 		}
@@ -206,14 +952,15 @@ const handleChangeFace = function () {
 		let type = $(target).attr("type")
 		let num = $(target).attr("num")
 		let text = Object.keys(textObj).includes(num) ? textObj[num] : num
-		var html = ""
-		if (color === "red") {
-			html = '<div class="eachCardNum redText">' + text + '</div>' +
-			'<div class="eachCardType redText">' + colorTextObj[type] + '</div>'
-		} else {
-			html = '<div class="eachCardNum blackText">' + text + '</div>' +
-			'<div class="eachCardType blackText">' + colorTextObj[type] + '</div>'
+		// {num: 1, face: 'negative', text: 'A', type: 1, color: 'black'}
+		let data = {
+			num: num,
+			face: 'negative',
+			text: text,
+			type: type,
+			color: color,
 		}
+		let html = templateCardInner(data)
 		$(target).addClass("bottomTarget")
 		$(target).attr("draggable", true)
 		$(target).append(html)
@@ -325,7 +1072,7 @@ const updateTopCardList = function (nowDragDom) {
 const handleStartBtn = function () {
 	$(".startBtn").on("click", e => {
 		init()
-		buildCardLib()
+		buildCardLib(debugData)
 		buildEachColumnCard()
 	})
 }
@@ -346,7 +1093,7 @@ const handleDebugBtn = function () {
 
 const __main = function () {
 	init()
-	buildCardLib()
+	buildCardLib(debugData)
 	buildEachColumnCard()
 	handleChangeCardBtn()
 	handleStartBtn()
