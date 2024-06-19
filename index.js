@@ -599,16 +599,30 @@ let debugData = {
 	],
 	"TOP_CARD_LIB": [
 		{
-			"num": 2,
+			"num": 1,
 			"face": "negative",
-			"text": "2",
-			"type": 4,
+			"text": "A",
+			"type": 2,
 			"color": "red"
 		},
 		{
 			"num": 1,
 			"face": "negative",
 			"text": "A",
+			"type": 4,
+			"color": "red"
+		},
+		{
+			"num": 2,
+			"face": "negative",
+			"text": "2",
+			"type": 3,
+			"color": "black"
+		},
+		{
+			"num": 2,
+			"face": "negative",
+			"text": "2",
 			"type": 4,
 			"color": "red"
 		},
@@ -683,23 +697,9 @@ let debugData = {
 			"color": "red"
 		},
 		{
-			"num": 2,
-			"face": "negative",
-			"text": "2",
-			"type": 3,
-			"color": "black"
-		},
-		{
 			"num": 9,
 			"face": "negative",
 			"text": "9",
-			"type": 2,
-			"color": "red"
-		},
-		{
-			"num": 1,
-			"face": "negative",
-			"text": "A",
 			"type": 2,
 			"color": "red"
 		},
@@ -924,6 +924,10 @@ const handleChangeCardBtn = function () {
 	$(".changeBtn").on("click", event => {
 		$(".source").removeClass("source")
 
+		if (topCardIndex >= TOP_CARD_LIB.length) {
+			topCardIndex = 0
+		}
+
 		let topShowCard = TOP_CARD_LIB[topCardIndex]
 		let textColor = templateCardInner(topShowCard)
 		let showCardText = '<div ondragstart="dragstart_handler(event);" draggable="true" class="subCard eachCardInCol isPositive dragCard source" index="' + (topCardIndex + 1) + '" color="' + topShowCard.color + '" face="' + topShowCard.face + '" type="' + topShowCard.type + '" num="' + topShowCard.num + '">' +
@@ -933,9 +937,6 @@ const handleChangeCardBtn = function () {
 		$(".changedCardShow").append(showCardText)
 
 		topCardIndex++
-		if (topCardIndex >= TOP_CARD_LIB.length) {
-			topCardIndex = 0
-		}
 	})
 }
 
@@ -996,11 +997,15 @@ const drop_handler = function (event) {
 	var bottomTarget = "bottomTarget"
 	// appendChild
 	log("*** event.target", event.target)
-	log("*** parent color", $(event.target).attr("color"))
-	log("*** nowDragDom color", $(nowDragDom).attr("color"))
-	log("*** parent num", Number($(event.target).attr("num")))
-	log("*** nowDragDom num", Number($(nowDragDom).attr("num")))
-	log("*** event.target.classList", event.target.classList, typeof event.target.classList)
+	// bottomTarget
+	let targetDom = $(event.target).closest('.bottomTarget')
+	log('targetDom', targetDom)
+
+	log("*** parent color", targetDom.attr("color"))
+	log("*** nowDragDom color", targetDom.attr("color"))
+	log("*** parent num", Number(targetDom.attr("num")))
+	log("*** nowDragDom num", Number(targetDom.attr("num")))
+	log("*** event.target.classList", targetDom[0]?.classList, typeof event.target?.classList)
 	if (event.target.classList.contains("topTarget")) {
 		log(">>> in 顶部")
 		// 顶部的 4 个花色
@@ -1012,23 +1017,40 @@ const drop_handler = function (event) {
 			$(event.target).attr("type", type)
 			$(nowDragDom).addClass("topTarget")
 			$(event.target).append($(nowDragDom));
+			$(nowDragDom).attr("draggable", false)
+			$(nowDragDom).removeClass("dragCard")
 			// 通过 subCard 属性判断是左上角牌叠的牌
 			updateTopCardList(nowDragDom)
 		} else {
-			log(">>> 顶部，非空，检查花色和数值")
-			if ($(event.target).attr("type") === $(nowDragDom).attr("type")) {
-				if (Number($(event.target).attr("num")) + 1 === Number($(nowDragDom).attr("num"))) {
-					log("*** in 数字挨着 0 => 1")
-					$(nowDragDom).addClass("topTarget")
-					$(event.target).append($(nowDragDom));
-					// 通过 subCard 属性判断是左上角牌叠的牌
-					updateTopCardList(nowDragDom)
-				}
+			console.warn("这里不会再进来了 >>> 顶部，非空，检查花色和数值")
+			// if ($(event.target).attr("type") === $(nowDragDom).attr("type")) {
+			// 	if (Number($(event.target).attr("num")) + 1 === Number($(nowDragDom).attr("num"))) {
+			// 		log("*** in 数字挨着 0 => 1")
+			// 		$(nowDragDom).addClass("topTarget")
+			// 		$(event.target).append($(nowDragDom));
+			// 		// 通过 subCard 属性判断是左上角牌叠的牌
+			// 		updateTopCardList(nowDragDom)
+			// 	}
+			// }
+		}
+	} else if (targetDom[0].classList.contains("topTarget")) {
+		log(" else if >>> 顶部，非空，检查花色和数值")
+		if (targetDom.attr("type") === $(nowDragDom).attr("type")) {
+			if (Number(targetDom.attr("num")) + 1 === Number($(nowDragDom).attr("num"))) {
+				log("*** in 数字挨着 0 => 1")
+				$(nowDragDom).addClass("topTarget")
+				$(nowDragDom).addClass("topTarget2")
+				targetDom.parent().append($(nowDragDom));
+				$(nowDragDom).attr("draggable", false)
+				$(nowDragDom).removeClass("dragCard")
+				// 通过 subCard 属性判断是左上角牌叠的牌
+				updateTopCardList(nowDragDom)
+
 			}
 		}
-	} else if (event.target.classList.contains("eachColumn")) {
+	} else if (targetDom[0].classList.contains("eachColumn")) {
 		log(">>> in 底部")
-		if ($(event.target).children().length === 0) {
+		if (targetDom.children().length === 0) {
 			log("*** 底部这一列是空的，可以放置")
 			$(event.target).append($(nowDragDom));
 			// 通过 subCard 属性判断是左上角牌叠的牌
@@ -1037,11 +1059,11 @@ const drop_handler = function (event) {
 	} else {
 		log('>>> 红黑相间')
 		// 红黑相间
-		if ($(event.target).attr("color") !== $(nowDragDom).attr("color")) {
+		if (targetDom.attr("color") !== $(nowDragDom).attr("color")) {
 			// 数字挨着 5 下面只能放 4
 			log("*** in 红黑相间")
-			if (Number($(event.target).attr("num")) === Number($(nowDragDom).attr("num")) + 1) {
-				$(event.target).parent().append($(nowDragDom));
+			if (Number(targetDom.attr("num")) === Number($(nowDragDom).attr("num")) + 1) {
+				targetDom.parent().append($(nowDragDom));
 				log('一张牌被放置成功了！！！')
 				// 通过 subCard 属性判断是左上角牌叠的牌
 				updateTopCardList(nowDragDom)
@@ -1063,6 +1085,7 @@ const updateTopCardList = function (nowDragDom) {
 		updateTopCardList($(nowDragDom).attr("index") - 1)
 		// 牌被成功放置之后要去掉 subCard 属性
 		$(nowDragDom).removeClass("subCard")
+		$(nowDragDom).addClass("bottomTarget")
 		TOP_CARD_LIB.splice(index, 1)
 		topCardIndex -= 1
 	}

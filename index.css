@@ -215,3 +215,9 @@
 	align-items: center;
 	flex: 1;
 }
+
+.topTarget2 {
+	position: absolute;
+	top: 132px;
+	right: 2px;
+}
