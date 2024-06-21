@@ -2,6 +2,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	user-select: none;
 }
 .container {
 	position: relative;
@@ -31,11 +32,23 @@
 }
 .changeBtn {
 	margin-right: 10px;
-	background-color: #00008B;
-	background: url("./imgs/tinified/newBg.png") no-repeat;
+	background: url("../imgs/tinified/newBg.png") no-repeat;
 	background-size: contain;
+}
+/* 左上角牌叠用光了 */
+.changeBtn1 {
 	opacity: 0.9;
+	border: 1px solid #808A87;
 	background-color: #FFFFFF;
+}
+.changeEmpty {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: url("../imgs/tinified/emptyBox.png") no-repeat;
 }
 .changedCardShow {
 	border: none !important;
@@ -57,6 +70,7 @@
 	padding: 2px;
 }
 .eachCard {
+	position: relative;
 	height: 160px;
 	width: 117px;
 	border-radius: 6px;
@@ -96,7 +110,7 @@
 .isNegative {
 	height: 160px;
 	width: 118px;
-	background: url("./imgs/tinified/newBg.png") no-repeat;
+	background: url("../imgs/tinified/newBg.png") no-repeat;
 	background-size: contain;
 	background-color: #FFFFFF;
 	border: none;

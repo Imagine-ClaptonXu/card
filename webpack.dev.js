@@ -20,7 +20,7 @@ module.exports = {
 
     // https://webpack.js.org/concepts/entry-points/#multi-page-application
     entry: {
-        index: './index.js',
+        index: './lib/index.js',
     },
 
     // https://www.webpackjs.com/configuration/dev-server/#devserver
