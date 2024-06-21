@@ -1,0 +1,28 @@
+{
+  "name": "card-pack",
+  "version": "1.0.0",
+  "description": "win7 card pack",
+  "main": "./src/index.js",
+  "scripts": {
+    "dev": "npm run start",
+    "start": "webpack serve --config webpack.dev.js --mode development",
+    "build": "webpack --config webpack.prod.js --mode production",
+    "preview": "npm run build && http-server dist"
+  },
+  "author": "",
+  "engines": {
+    "node": ">= 20.11.1"
+  },
+  "dependencies": {
+    "css-loader": "~7.1.2",
+    "css-minimizer-webpack-plugin": "~7.0.0",
+    "html-webpack-plugin": "~5.6.0",
+    "mini-css-extract-plugin": "~2.9.0",
+    "style-loader": "~4.0.0",
+    "terser-webpack-plugin": "~5.3.10",
+    "webpack": "~5.92.1",
+    "webpack-cli": "~5.1.4",
+    "webpack-dev-server": "~5.0.4",
+    "webpackbar": "~6.0.1"
+  }
+}

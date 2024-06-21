@@ -1,3 +1,6 @@
+import './index.css'
+import './lib/jquery.min.js'
+
 const log = console.log.bind(console)
 
 // 拖拽 DOM
@@ -401,6 +404,13 @@ let debugData = {
 	],
 	"BOTTOM_CARD_LIB": [
 		{
+			"num": 1,
+			"face": "negative",
+			"text": "A",
+			"type": 1,
+			"color": "black"
+		},
+		{
 			"num": 6,
 			"face": "negative",
 			"text": "6",
@@ -413,13 +423,6 @@ let debugData = {
 			"text": "4",
 			"type": 4,
 			"color": "red"
-		},
-		{
-			"num": 1,
-			"face": "negative",
-			"text": "A",
-			"type": 1,
-			"color": "black"
 		},
 		{
 			"num": 7,
@@ -1115,17 +1118,27 @@ const handleDebugBtn = function () {
 }
 
 const __main = function () {
-	init()
-	buildCardLib(debugData)
-	buildEachColumnCard()
-	handleChangeCardBtn()
-	handleStartBtn()
-	handleDebugBtn()
-	handleChangeFace()
-	// dragEvent()
+	document.addEventListener("DOMContentLoaded", (event) => {
+		console.log("DOMContentLoaded...")
 
-	// 默认展示左上角牌叠
-	$(".topSupport").click()
+		init()
+		buildCardLib(debugData)
+		buildEachColumnCard()
+		handleChangeCardBtn()
+		handleStartBtn()
+		handleDebugBtn()
+		handleChangeFace()
+
+		// TODO: 把这三个方法先暂时挂在 window 上
+		// 否则会被 webpack 的 tree shaking 给 shaking 掉
+		// 后面改造去掉 jQuery 并改造成事件委托应该可以解决掉
+		window.drop_handler = drop_handler
+		window.dragover_handler = dragover_handler
+		window.dragstart_handler = dragstart_handler
+
+		// 默认展示左上角牌叠
+		$(".topSupport").click()
+	})
 }
 
 __main()
