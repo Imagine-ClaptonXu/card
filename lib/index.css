@@ -107,6 +107,7 @@
 	justify-content: space-between;
 	align-items: center;
 }
+
 .isNegative {
 	height: 160px;
 	width: 118px;
@@ -119,19 +120,103 @@
 .isPositive {
 	color: black !important;
 }
-.blackText {
-	color: black !important;
-}
+
 .eachCardNum {
-	top: 3px;
+	top: 2px;
 	left: 9px;
-	font-size: 26px;
+	font-size: 24px;
 	font-weight: bold;
+	opacity: 0.75;
+}
+.eachCardNum10 {
+	font-size: 19px;
+	margin-left: -4px;
 }
 .eachCardType {
-	top: 0;
+	top: 5px;
 	right: 8px;
-	font-size: 28px;
+	width: 18px;
+	height: 18px;
+	margin-top: 5px;
+}
+.eachCardType1 {
+	background: url("../imgs/tinified/heitao.png") no-repeat;
+	background-size: 100% 100%;
+}
+.eachCardType2 {
+	width: 16px;
+	height: 16px;
+	background: url("../imgs/tinified/hongtao.png") no-repeat;
+	background-size: 100% 100%;
+}
+.eachCardType3 {
+	background: url("../imgs/tinified/caohua.png") no-repeat;
+	background-size: 100% 100%;
+}
+.eachCardType4 {
+	background: url("../imgs/tinified/fangpian.png") no-repeat;
+	background-size: 100% 100%;
+}
+/*J*/
+.eachCardType11 {
+	width: 37px;
+	height: 60px;
+	margin-left: -8px;
+	margin-bottom: -5px;
+}
+.eachCardTypeRED11 {
+	background: url("../imgs/tinified/redJ.png") no-repeat;
+	background-size: 100% 100%;
+}
+.eachCardTypeBLACK11 {
+	background: url("../imgs/tinified/blackJ.png") no-repeat;
+	background-size: 100% 100%;
+}
+.innerMidCardRotateHead11 {
+	margin-left: 8px;
+	margin-bottom: 4px;
+	z-index: -5;
+}
+/*Q*/
+.eachCardType12 {
+	width: 36px;
+	height: 60px;
+	margin-left: -4px;
+	margin-bottom: -4px;
+}
+.eachCardTypeRED12 {
+	background: url("../imgs/tinified/redQ.png") no-repeat;
+	background-size: 100% 100%;
+}
+.eachCardTypeBLACK12 {
+	background: url("../imgs/tinified/blackQ.png") no-repeat;
+	background-size: 100% 100%;
+}
+.innerMidCardRotateHead12 {
+	margin-left: 4px;
+	margin-bottom: 3px;
+	z-index: -5;
+}
+/*K*/
+.eachCardType13 {
+	width: 35px;
+	height: 60px;
+	margin-left: -10px;
+	margin-bottom: -4px;
+}
+.eachCardTypeRED13 {
+	background: url("../imgs/tinified/redK.png") no-repeat;
+	background-size: 100% 100%;
+}
+.eachCardTypeBLACK13 {
+	background: url("../imgs/tinified/blackK.png") no-repeat;
+	background-size: 100% 100%;
+
+}
+.innerMidCardRotateHead13 {
+	margin-left: 10px;
+	margin-bottom: 3px;
+	z-index: -5;
 }
 .eachCardTypeMid {
 	position: absolute;
@@ -140,6 +225,7 @@
 	transform: translateX(-50%);
 	font-size: 80px;
 }
+
 .startBtn {
 	position: absolute;
 	bottom: 30px;
@@ -162,13 +248,6 @@
 	border-radius: 5px;
 	padding: 3px 10px 3px 10px;
 }
-.redText {
-	color: #FF0000 !important;
-}
-.blackText {
-	color: #000 !important;
-}
-
 
 /*顶部牌叠辅助功能*/
 .topSupportText {
@@ -209,7 +288,7 @@
 }
 .innerCardLine {
 	width: 100%;
-	padding: 0 5px;
+	padding: 0 3px;
 	height: 30px;
 	display: flex;
 	flex-direction: row;
@@ -220,18 +299,73 @@
 	flex-direction: row-reverse;
 	rotate: 180deg;
 }
+.innerMidCard {
+	width: 23px;
+	height: 22px;
+	margin-top: 0;
+}
 .innerCardMid {
-	padding: 0 5px;
-	width: 100%;
+	position: absolute;
+	width: 66%;
+	height: 80%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	flex: 1;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
-
+.eachCardTypeWith2 {
+	width: 65%;
+}
+.innerCardMid2, .innerCardMid3, .innerCardMid4, .innerCardMid5, .innerCardMid6, .innerCardMid7, .innerCardMid8, .innerCardMid9, .innerCardMid10 {
+	justify-content: space-between;
+}
+.innerCardMid10 {
+	width: 63%;
+}
+.each4, .each5, .each6, .each7, .each8, .each9, .each10 {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+.each51 {
+	justify-content: center;
+}
+.innerMidCardAbs71, .innerMidCardAbs81, .innerMidCardAbs101 {
+	position: absolute;
+	top: 25px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.innerMidCardAbs82, .innerMidCardAbs102 {
+	position: absolute;
+	left: 35%;
+	top: 75px;
+	rotate: 180deg;
+}
+.innerMidCardAbs91 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.innerMidCardRotate {
+	rotate: 180deg;
+}
 .topTarget2 {
 	position: absolute;
 	top: 132px;
 	right: 2px;
+}
+
+.redText {
+	color: #FF0000 !important;
+}
+.blackText {
+	color: #000 !important;
 }
